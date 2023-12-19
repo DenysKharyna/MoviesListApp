@@ -32,5 +32,14 @@ struct Movie {
         self.releasedDate = dateFormatter.date(from: releasedDate)
         self.trailerLinkURL = trailerLinkURL
     }
+    
+    func getDuration() -> String {
+        guard let hours = duration.hour, let minutes = duration.minute else { return "" }
+        return "\(hours)h \(minutes)min"
+    }
+    
+    func getGenres() -> String {
+        genre.map({ $0.rawValue }).joined(separator: ", ")
+    }
 }
 

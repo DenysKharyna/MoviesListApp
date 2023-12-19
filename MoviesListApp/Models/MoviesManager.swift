@@ -18,7 +18,7 @@ final class MoviesManager {
     }
     
     // MARK: Sorting Methods
-    func sortMoviesByName() {
+    func sortMoviesByTitle() {
         moviesList.sort { $0.title < $1.title }
     }
     
@@ -77,7 +77,7 @@ extension MoviesManager {
                   description: "When Tony Stark and Bruce Banner try to jump-start a dormant peacekeeping program called Ultron, things go horribly wrong and it's up to Earth's mightiest heroes to stop the villainous Ultron from enacting his terrible plan.",
                   rating: 7.3,
                   duration: DateComponents(hour: 2, minute: 21),
-                  genre: [.action, .adventure, .sciFi],
+                  genre: [.sciFi, .action, .adventure],
                   releasedDate: "1 May 2015",
                   trailerLinkURL: URL(string: "https://www.youtube.com/watch?v=tg52up16eq0")!),
         ]

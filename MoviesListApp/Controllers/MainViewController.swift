@@ -1,0 +1,74 @@
+//
+//  MainViewController.swift
+//  MoviesListApp
+//
+//  Created by Денис Харына on 19.12.2023.
+//
+
+import UIKit
+
+final class MainViewController: UITableViewController {
+    // MARK: Properties
+    private let cellID = "mainVCCell"
+    
+    // MARK: Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureUI()
+    }
+    
+    // MARK: Helper
+    private func configureUI() {
+        tableView.register(MainVCTableViewCell.self, forCellReuseIdentifier: cellID)
+        tableView.showsVerticalScrollIndicator = false
+        
+        self.title = "Movies"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.setRightBarButton(UIBarButtonItem(title: "Sort", style: .plain, target: self, action: #selector(showSortMenu)), animated: true)
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.label
+    }
+    
+    // MARK: Selectors
+    @objc private func showSortMenu() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Title", style: .default, handler: { _ in
+            MoviesManager.shared.sortMoviesByTitle()
+            self.tableView.reloadData()
+        }))
+        alert.addAction(UIAlertAction(title: "Released Date", style: .default, handler: { _ in
+            MoviesManager.shared.sortMoviesByDate()
+            self.tableView.reloadData()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive))
+        self.present(alert, animated: true)
+    }
+}
+
+// MARK: - UITableViewDatasource
+extension MainViewController {
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        MoviesManager.shared.moviesList.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! MainVCTableViewCell
+        cell.movie = MoviesManager.shared.moviesList[indexPath.row]
+        return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension MainViewController {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        210
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
