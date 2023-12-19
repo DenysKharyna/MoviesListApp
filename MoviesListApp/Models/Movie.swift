@@ -27,6 +27,8 @@ struct Movie {
         self.genre = genre
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMMM yyyy"
+        dateFormatter.timeZone = TimeZone(identifier: "GMT")
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         self.releasedDate = dateFormatter.date(from: releasedDate)
         self.trailerLinkURL = trailerLinkURL
     }

@@ -10,15 +10,26 @@ import Foundation
 final class MoviesManager {
     // MARK: Properties
     static let shared = MoviesManager()
-    private var moviesList: [Movie] = []
+    private(set) var moviesList: [Movie] = []
     
     // MARK: Life cycle
     private init() {
         self.moviesList = configureMovies()
     }
     
-    // MARK: Methods
+    // MARK: Sorting Methods
+    func sortMoviesByName() {
+        moviesList.sort { $0.title < $1.title }
+    }
     
+    func sortMoviesByDate() {
+        let withoutDate = moviesList.filter({ $0.releasedDate == nil })
+        moviesList = moviesList
+            .filter({ $0.releasedDate != nil })
+            .sorted(by: { $0.releasedDate! > $1.releasedDate! })
+        
+        moviesList.append(contentsOf: withoutDate)
+    }
 }
 
 // MARK: - Configuring Movies
