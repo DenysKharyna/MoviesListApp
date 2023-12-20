@@ -25,21 +25,13 @@ final class MainViewController: UITableViewController {
         self.title = "Movies"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.setRightBarButton(UIBarButtonItem(title: "Sort", style: .plain, target: self, action: #selector(showSortMenu)), animated: true)
-        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.label
+        self.navigationItem.rightBarButtonItem?.tintColor = .label
     }
     
     // MARK: Selectors
     @objc private func showSortMenu() {
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Title", style: .default, handler: { _ in
-            MoviesManager.shared.sortMoviesByTitle()
-            self.tableView.reloadData()
-        }))
-        alert.addAction(UIAlertAction(title: "Released Date", style: .default, handler: { _ in
-            MoviesManager.shared.sortMoviesByDate()
-            self.tableView.reloadData()
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive))
+        let alert = SortingAlert(title: nil, message: nil, preferredStyle: .actionSheet)
+        alert.delegate = self
         self.present(alert, animated: true)
     }
 }
@@ -72,3 +64,9 @@ extension MainViewController {
     }
 }
 
+// MARK: - SortingAlertDelegate
+extension MainViewController: SortingAlertDelegate {
+    func reloadTableView() {
+        tableView.reloadData()
+    }
+}

@@ -16,6 +16,7 @@
 		61B1A8632B31BCF000945E2B /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B1A8622B31BCF000945E2B /* Genre.swift */; };
 		61B1A8652B31BD2700945E2B /* MoviesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B1A8642B31BD2700945E2B /* MoviesManager.swift */; };
 		61B1A8672B31F98100945E2B /* MainVCTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B1A8662B31F98100945E2B /* MainVCTableViewCell.swift */; };
+		61B20FA62B32E22A001C2EEC /* SortingAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B20FA52B32E22A001C2EEC /* SortingAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		61B1A8622B31BCF000945E2B /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		61B1A8642B31BD2700945E2B /* MoviesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesManager.swift; sourceTree = "<group>"; };
 		61B1A8662B31F98100945E2B /* MainVCTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCTableViewCell.swift; sourceTree = "<group>"; };
+		61B20FA52B32E22A001C2EEC /* SortingAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				61B1A8662B31F98100945E2B /* MainVCTableViewCell.swift */,
+				61B20FA52B32E22A001C2EEC /* SortingAlert.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				61B1A84D2B31B11600945E2B /* MainViewController.swift in Sources */,
 				61B1A8492B31B11600945E2B /* AppDelegate.swift in Sources */,
 				61B1A8612B31B7DD00945E2B /* Movie.swift in Sources */,
+				61B20FA62B32E22A001C2EEC /* SortingAlert.swift in Sources */,
 				61B1A84B2B31B11600945E2B /* SceneDelegate.swift in Sources */,
 				61B1A8652B31BD2700945E2B /* MoviesManager.swift in Sources */,
 				61B1A8672B31F98100945E2B /* MainVCTableViewCell.swift in Sources */,
