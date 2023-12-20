@@ -45,7 +45,7 @@ final class MovieDetailsMainInfoView: UIView {
         addToWatchlistButton.widthAnchor.constraint(equalTo: addToWatchlistButton.titleLabel!.widthAnchor, constant: 24).isActive = true
         addToWatchlistButton.addTarget(self, action: #selector(addToWatchListTapped), for: .touchUpInside)
         // watchTrailerButton
-        watchTrailerButton.appDefaultStyle(title: "WATCH TRAILER", bgColor: .clear, titleColor: .label, borderColor: UIColor.label.cgColor, borderWidth: 2)
+        watchTrailerButton.appDefaultStyle(title: "WATCH TRAILER", bgColor: .clear, titleColor: .label, borderColor: UIColor.label, borderWidth: 1)
         watchTrailerButton.widthAnchor.constraint(equalTo: watchTrailerButton.titleLabel!.widthAnchor, constant: 54).isActive = true
         watchTrailerButton.addTarget(self, action: #selector(watchTrailerTapped), for: .touchUpInside)
     }

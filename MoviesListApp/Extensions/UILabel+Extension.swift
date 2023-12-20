@@ -14,8 +14,9 @@ extension UILabel {
         textColor = .secondaryLabel
         numberOfLines = 0
     }
-    func titleTextStyle() {
-        font = .systemFont(ofSize: 22, weight: .bold)
+    func titleTextStyle(text: String = "", fontSize: CGFloat = 22) {
+        self.text = text
+        font = .systemFont(ofSize: fontSize, weight: .bold)
         textColor = .label
         numberOfLines = 0
         lineBreakStrategy = .hangulWordPriority

@@ -10,6 +10,9 @@ import UIKit
 final class MovieDetailsViewController: UIViewController {
     // MARK: Properties
     private let mainInfoView = MovieDetailsMainInfoView()
+    private let firstSeparator = SeparatorView()
+    private let descriptionView = MovieDetailsDescription()
+    private let secondSeparator = SeparatorView()
     
     var movie: Movie? {
         didSet {
@@ -18,6 +21,7 @@ final class MovieDetailsViewController: UIViewController {
             mainInfoView.titleLabel.text = movie.title
             mainInfoView.ratingLabel.text = String(movie.rating)
             mainInfoView.addToWatchlistButton.setTitle(movie.isInWatchList ? "REMOVE FROM WATCHLIST" : "+ ADD TO WATCHLIST", for: .normal)
+            descriptionView.descriptionText.text = movie.description
         }
     }
     
@@ -38,13 +42,27 @@ final class MovieDetailsViewController: UIViewController {
     
     private func constrain() {
         mainInfoView.translatesAutoresizingMaskIntoConstraints = false
+        descriptionView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(mainInfoView)
+        view.addSubview(firstSeparator)
+        view.addSubview(descriptionView)
+        view.addSubview(secondSeparator)
         
         NSLayoutConstraint.activate([
+            mainInfoView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             mainInfoView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             mainInfoView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            mainInfoView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            mainInfoView.heightAnchor.constraint(equalToConstant: 230),
+            mainInfoView.heightAnchor.constraint(equalToConstant: 240),
+            
+            firstSeparator.topAnchor.constraint(equalTo: mainInfoView.bottomAnchor),
+            firstSeparator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            descriptionView.topAnchor.constraint(equalTo: firstSeparator.bottomAnchor, constant: 25),
+            descriptionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            descriptionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            
+            secondSeparator.topAnchor.constraint(equalTo: descriptionView.bottomAnchor, constant: 25),
+            secondSeparator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
     }
 }
