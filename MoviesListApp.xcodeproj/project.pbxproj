@@ -19,6 +19,9 @@
 		61B20FA62B32E22A001C2EEC /* SortingAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B20FA52B32E22A001C2EEC /* SortingAlert.swift */; };
 		61B20FA82B32E947001C2EEC /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B20FA72B32E947001C2EEC /* MovieDetailsViewController.swift */; };
 		61B20FAA2B32EF10001C2EEC /* MovieCoverImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B20FA92B32EF10001C2EEC /* MovieCoverImage.swift */; };
+		61B20FAD2B32FE56001C2EEC /* MovieDetailsMainInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B20FAC2B32FE56001C2EEC /* MovieDetailsMainInfoView.swift */; };
+		61B20FB02B33040C001C2EEC /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B20FAF2B33040C001C2EEC /* UILabel+Extension.swift */; };
+		61B20FB42B3319B8001C2EEC /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B20FB32B3319B8001C2EEC /* UIButton+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		61B20FA52B32E22A001C2EEC /* SortingAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingAlert.swift; sourceTree = "<group>"; };
 		61B20FA72B32E947001C2EEC /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		61B20FA92B32EF10001C2EEC /* MovieCoverImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCoverImage.swift; sourceTree = "<group>"; };
+		61B20FAC2B32FE56001C2EEC /* MovieDetailsMainInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsMainInfoView.swift; sourceTree = "<group>"; };
+		61B20FAF2B33040C001C2EEC /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		61B20FB32B3319B8001C2EEC /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +77,7 @@
 				61B1A85C2B31B18800945E2B /* Models */,
 				61B1A85D2B31B19400945E2B /* Views */,
 				61B1A85E2B31B1A100945E2B /* Controllers */,
+				61B20FAE2B3303F6001C2EEC /* Extensions */,
 				61B1A85F2B31B1CD00945E2B /* Other */,
 				61B1A8562B31B11700945E2B /* Info.plist */,
 			);
@@ -90,6 +97,7 @@
 		61B1A85D2B31B19400945E2B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				61B20FAB2B32FE29001C2EEC /* MovieDetailsViews */,
 				61B1A8662B31F98100945E2B /* MainVCTableViewCell.swift */,
 				61B20FA52B32E22A001C2EEC /* SortingAlert.swift */,
 				61B20FA92B32EF10001C2EEC /* MovieCoverImage.swift */,
@@ -115,6 +123,23 @@
 				61B1A8532B31B11700945E2B /* LaunchScreen.storyboard */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		61B20FAB2B32FE29001C2EEC /* MovieDetailsViews */ = {
+			isa = PBXGroup;
+			children = (
+				61B20FAC2B32FE56001C2EEC /* MovieDetailsMainInfoView.swift */,
+			);
+			path = MovieDetailsViews;
+			sourceTree = "<group>";
+		};
+		61B20FAE2B3303F6001C2EEC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				61B20FAF2B33040C001C2EEC /* UILabel+Extension.swift */,
+				61B20FB32B3319B8001C2EEC /* UIButton+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,11 +214,14 @@
 			files = (
 				61B1A84D2B31B11600945E2B /* MainViewController.swift in Sources */,
 				61B1A8492B31B11600945E2B /* AppDelegate.swift in Sources */,
+				61B20FB42B3319B8001C2EEC /* UIButton+Extension.swift in Sources */,
+				61B20FAD2B32FE56001C2EEC /* MovieDetailsMainInfoView.swift in Sources */,
 				61B20FAA2B32EF10001C2EEC /* MovieCoverImage.swift in Sources */,
 				61B20FA82B32E947001C2EEC /* MovieDetailsViewController.swift in Sources */,
 				61B1A8612B31B7DD00945E2B /* Movie.swift in Sources */,
 				61B20FA62B32E22A001C2EEC /* SortingAlert.swift in Sources */,
 				61B1A84B2B31B11600945E2B /* SceneDelegate.swift in Sources */,
+				61B20FB02B33040C001C2EEC /* UILabel+Extension.swift in Sources */,
 				61B1A8652B31BD2700945E2B /* MoviesManager.swift in Sources */,
 				61B1A8672B31F98100945E2B /* MainVCTableViewCell.swift in Sources */,
 				61B1A8632B31BCF000945E2B /* Genre.swift in Sources */,

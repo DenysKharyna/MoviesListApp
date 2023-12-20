@@ -27,6 +27,7 @@ final class MovieCoverImage: UIView {
         imageView.frame = bounds
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 8
+        imageView.contentMode = .scaleAspectFill
         
         addSubview(imageView)
     }
