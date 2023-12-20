@@ -23,6 +23,7 @@ final class MainVCTableViewCell: UITableViewCell {
                 movieTitleLabel.text! += " (\(date.description.prefix(4)))"
             }
             mainInfoLabel.text = "\(movie.getDuration()) - \(movie.getGenres())"
+            mainInfoLabel.setLineSpacing(2)
             onWatchListLabel.isHidden = movie.isInWatchList
         }
     }

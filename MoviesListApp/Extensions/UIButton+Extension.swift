@@ -13,7 +13,7 @@ extension UIButton {
         layer.cornerRadius = 18
         backgroundColor = bgColor
         setTitleColor(titleColor, for: .normal)
-        titleLabel?.font = .systemFont(ofSize: 11)
+        titleLabel?.font = .systemFont(ofSize: 11, weight: .semibold)
         heightAnchor.constraint(equalToConstant: 36).isActive = true
         layer.borderColor = borderColor.cgColor
         layer.borderWidth = borderWidth

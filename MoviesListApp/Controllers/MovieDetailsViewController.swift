@@ -13,6 +13,7 @@ final class MovieDetailsViewController: UIViewController {
     private let firstSeparator = SeparatorView()
     private let descriptionView = MovieDetailsDescription()
     private let secondSeparator = SeparatorView()
+    private let extraInfoView = MovieDetailsExtraInfoView()
     
     var movie: Movie? {
         didSet {
@@ -22,6 +23,12 @@ final class MovieDetailsViewController: UIViewController {
             mainInfoView.ratingLabel.text = String(movie.rating)
             mainInfoView.addToWatchlistButton.setTitle(movie.isInWatchList ? "REMOVE FROM WATCHLIST" : "+ ADD TO WATCHLIST", for: .normal)
             descriptionView.descriptionText.text = movie.description
+            descriptionView.descriptionText.setLineSpacing(2)
+            extraInfoView.genreLabel.text = movie.getGenres()
+            guard let date = movie.releasedDate else { return }
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy, d MMMM"
+            extraInfoView.releasedDateLabel.text = formatter.string(from: date)
         }
     }
     
@@ -37,16 +44,17 @@ final class MovieDetailsViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationController?.navigationBar.tintColor = .label
         view.backgroundColor = .systemBackground
-        
     }
     
     private func constrain() {
         mainInfoView.translatesAutoresizingMaskIntoConstraints = false
         descriptionView.translatesAutoresizingMaskIntoConstraints = false
+        extraInfoView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(mainInfoView)
         view.addSubview(firstSeparator)
         view.addSubview(descriptionView)
         view.addSubview(secondSeparator)
+        view.addSubview(extraInfoView)
         
         NSLayoutConstraint.activate([
             mainInfoView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -63,6 +71,10 @@ final class MovieDetailsViewController: UIViewController {
             
             secondSeparator.topAnchor.constraint(equalTo: descriptionView.bottomAnchor, constant: 25),
             secondSeparator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            extraInfoView.topAnchor.constraint(equalTo: secondSeparator.bottomAnchor, constant: 25),
+            extraInfoView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            extraInfoView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
         ])
     }
 }

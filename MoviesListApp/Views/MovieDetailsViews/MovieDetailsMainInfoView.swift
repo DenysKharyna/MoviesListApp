@@ -15,7 +15,7 @@ final class MovieDetailsMainInfoView: UIView {
     private let maxRating = UILabel()
     let addToWatchlistButton = UIButton()
     let watchTrailerButton = UIButton()
-
+    
     // MARK: Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)

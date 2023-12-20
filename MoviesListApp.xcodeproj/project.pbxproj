@@ -24,6 +24,7 @@
 		61B20FB42B3319B8001C2EEC /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B20FB32B3319B8001C2EEC /* UIButton+Extension.swift */; };
 		61B20FB62B331E31001C2EEC /* MovieDetailsDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B20FB52B331E31001C2EEC /* MovieDetailsDescription.swift */; };
 		61B20FB82B33209A001C2EEC /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B20FB72B33209A001C2EEC /* SeparatorView.swift */; };
+		61B20FBA2B333542001C2EEC /* MovieDetailsExtraInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B20FB92B333542001C2EEC /* MovieDetailsExtraInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		61B20FB32B3319B8001C2EEC /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		61B20FB52B331E31001C2EEC /* MovieDetailsDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsDescription.swift; sourceTree = "<group>"; };
 		61B20FB72B33209A001C2EEC /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
+		61B20FB92B333542001C2EEC /* MovieDetailsExtraInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsExtraInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +107,6 @@
 				61B1A8662B31F98100945E2B /* MainVCTableViewCell.swift */,
 				61B20FA52B32E22A001C2EEC /* SortingAlert.swift */,
 				61B20FA92B32EF10001C2EEC /* MovieCoverImage.swift */,
-				61B20FB72B33209A001C2EEC /* SeparatorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -135,6 +136,8 @@
 			children = (
 				61B20FAC2B32FE56001C2EEC /* MovieDetailsMainInfoView.swift */,
 				61B20FB52B331E31001C2EEC /* MovieDetailsDescription.swift */,
+				61B20FB92B333542001C2EEC /* MovieDetailsExtraInfoView.swift */,
+				61B20FB72B33209A001C2EEC /* SeparatorView.swift */,
 			);
 			path = MovieDetailsViews;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				61B20FA62B32E22A001C2EEC /* SortingAlert.swift in Sources */,
 				61B1A84B2B31B11600945E2B /* SceneDelegate.swift in Sources */,
 				61B20FB02B33040C001C2EEC /* UILabel+Extension.swift in Sources */,
+				61B20FBA2B333542001C2EEC /* MovieDetailsExtraInfoView.swift in Sources */,
 				61B1A8652B31BD2700945E2B /* MoviesManager.swift in Sources */,
 				61B20FB82B33209A001C2EEC /* SeparatorView.swift in Sources */,
 				61B1A8672B31F98100945E2B /* MainVCTableViewCell.swift in Sources */,
