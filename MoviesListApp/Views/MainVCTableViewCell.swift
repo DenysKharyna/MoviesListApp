@@ -9,7 +9,7 @@ import UIKit
 
 final class MainVCTableViewCell: UITableViewCell {
     // MARK: Properties
-    private let movieCoverImage = UIImageView()
+    private let movieCoverImage = MovieCoverImage()
     private let movieTitleLabel = UILabel()
     private let mainInfoLabel = UILabel()
     private let onWatchListLabel = UILabel()
@@ -17,7 +17,7 @@ final class MainVCTableViewCell: UITableViewCell {
     var movie: Movie? {
         didSet {
             guard let movie = movie else { return }
-            movieCoverImage.image = movie.coverImage
+            movieCoverImage.imageView.image = movie.coverImage
             movieTitleLabel.text = "\(movie.title)"
             if let date = movie.releasedDate {
                 movieTitleLabel.text! += " (\(date.description.prefix(4)))"
@@ -43,12 +43,6 @@ final class MainVCTableViewCell: UITableViewCell {
     // MARK: Helpers
     private func configureUI() {
         // movieCoverImage
-        movieCoverImage.layer.masksToBounds = true
-        movieCoverImage.layer.cornerRadius = 8
-        movieCoverImage.layer.shadowColor = UIColor.black.cgColor
-        movieCoverImage.layer.shadowOpacity = 0.6
-        movieCoverImage.layer.shadowOffset = CGSize(width: 0, height: 5)
-        movieCoverImage.layer.shadowRadius = 5
         movieCoverImage.widthAnchor.constraint(equalToConstant: 110).isActive = true
         movieCoverImage.heightAnchor.constraint(equalToConstant: 170).isActive = true
         // movieTitleLabel

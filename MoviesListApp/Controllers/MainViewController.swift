@@ -61,6 +61,9 @@ extension MainViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let vc = MovieDetailsViewController()
+        vc.movie = MoviesManager.shared.moviesList[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
