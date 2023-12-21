@@ -18,10 +18,11 @@ final class MovieDetailsViewController: UIViewController {
     var movie: Movie? {
         didSet {
             guard let movie = movie else { return }
+            mainInfoView.movie = movie
             mainInfoView.coverImage.imageView.image = movie.coverImage
             mainInfoView.titleLabel.text = movie.title
             mainInfoView.ratingLabel.text = String(movie.rating)
-            mainInfoView.addToWatchlistButton.setTitle(movie.isInWatchList ? "REMOVE FROM WATCHLIST" : "+ ADD TO WATCHLIST", for: .normal)
+            mainInfoView.watchlistButton.setTitle(movie.isInWatchList ? "REMOVE FROM WATCHLIST" : "+ ADD TO WATCHLIST", for: .normal)
             descriptionView.descriptionText.text = movie.description
             descriptionView.descriptionText.setLineSpacing(2)
             extraInfoView.genreLabel.text = movie.getGenres()
@@ -31,12 +32,21 @@ final class MovieDetailsViewController: UIViewController {
             extraInfoView.releasedDateLabel.text = formatter.string(from: date)
         }
     }
+    weak var delegate: SortingAlertDelegate? {
+        didSet {
+            mainInfoView.delegate = delegate
+        }
+    }
     
     // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         constrain()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     // MARK: Helpers
@@ -58,23 +68,23 @@ final class MovieDetailsViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             mainInfoView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            mainInfoView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            mainInfoView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mainInfoView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            mainInfoView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             mainInfoView.heightAnchor.constraint(equalToConstant: 240),
             
             firstSeparator.topAnchor.constraint(equalTo: mainInfoView.bottomAnchor),
             firstSeparator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             descriptionView.topAnchor.constraint(equalTo: firstSeparator.bottomAnchor, constant: 25),
-            descriptionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            descriptionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            descriptionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            descriptionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             
             secondSeparator.topAnchor.constraint(equalTo: descriptionView.bottomAnchor, constant: 25),
             secondSeparator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             extraInfoView.topAnchor.constraint(equalTo: secondSeparator.bottomAnchor, constant: 25),
-            extraInfoView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            extraInfoView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            extraInfoView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            extraInfoView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
         ])
     }
 }

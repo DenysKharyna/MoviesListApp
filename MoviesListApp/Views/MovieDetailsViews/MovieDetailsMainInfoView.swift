@@ -13,8 +13,11 @@ final class MovieDetailsMainInfoView: UIView {
     let titleLabel = UILabel()
     let ratingLabel = UILabel()
     private let maxRating = UILabel()
-    let addToWatchlistButton = UIButton()
+    let watchlistButton = UIButton()
     let watchTrailerButton = UIButton()
+    
+    var movie: Movie?
+    weak var delegate: SortingAlertDelegate?
     
     // MARK: Lifecycle
     override init(frame: CGRect) {
@@ -40,10 +43,10 @@ final class MovieDetailsMainInfoView: UIView {
         // maxRating
         maxRating.text = "/10"
         maxRating.simpleTextStyle(fontSize: 16)
-        // addToWatchlistButton
-        addToWatchlistButton.appDefaultStyle(bgColor: .systemGray5, titleColor: .secondaryLabel)
-        addToWatchlistButton.widthAnchor.constraint(equalTo: addToWatchlistButton.titleLabel!.widthAnchor, constant: 24).isActive = true
-        addToWatchlistButton.addTarget(self, action: #selector(addToWatchListTapped), for: .touchUpInside)
+        // watchlistButton
+        watchlistButton.appDefaultStyle(bgColor: .systemGray5, titleColor: .secondaryLabel)
+        watchlistButton.widthAnchor.constraint(equalTo: watchlistButton.titleLabel!.widthAnchor, constant: 24).isActive = true
+        watchlistButton.addTarget(self, action: #selector(watchlistButtonTapped), for: .touchUpInside)
         // watchTrailerButton
         watchTrailerButton.appDefaultStyle(title: "WATCH TRAILER", bgColor: .clear, titleColor: .label, borderColor: UIColor.label, borderWidth: 1)
         watchTrailerButton.widthAnchor.constraint(equalTo: watchTrailerButton.titleLabel!.widthAnchor, constant: 54).isActive = true
@@ -59,7 +62,7 @@ final class MovieDetailsMainInfoView: UIView {
         titleRatingStack.distribution = .equalSpacing
         titleRatingStack.alignment = .top
         
-        let buttonsStack = UIStackView(arrangedSubviews: [addToWatchlistButton, watchTrailerButton])
+        let buttonsStack = UIStackView(arrangedSubviews: [watchlistButton, watchTrailerButton])
         buttonsStack.axis = .vertical
         buttonsStack.spacing = 20
         buttonsStack.alignment = .leading
@@ -79,16 +82,27 @@ final class MovieDetailsMainInfoView: UIView {
         
         NSLayoutConstraint.activate([
             mainStack.centerYAnchor.constraint(equalTo: centerYAnchor),
-            mainStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
-            mainStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
+            mainStack.leadingAnchor.constraint(equalTo: leadingAnchor),
+            mainStack.trailingAnchor.constraint(equalTo: trailingAnchor),
             mainStack.heightAnchor.constraint(equalToConstant: 200)
         ])
     }
     
     // MARK: Selectors
-    @objc private func addToWatchListTapped() {
-        print("addToWatchListTapped")
+    @objc private func watchlistButtonTapped() {
+        guard let label = watchlistButton.titleLabel, let text = label.text else { return }
+        guard let _ = movie else { return }
+        
+        if text.contains("+") {
+            MoviesManager.shared.addToWatchList(movie: movie!)
+            watchlistButton.setTitle("REMOVE FROM WATCHLIST", for: .normal)
+        } else {
+            MoviesManager.shared.removeFromWatchList(movie: movie!)
+            watchlistButton.setTitle("+ ADD TO WATCHLIST", for: .normal)
+        }
+        delegate?.reloadTableView()
     }
+    
     @objc private func watchTrailerTapped() {
         print("watchTrailerTapped")
     }

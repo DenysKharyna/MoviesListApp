@@ -36,8 +36,8 @@ final class MovieDetailsDescription: UIView {
         
         NSLayoutConstraint.activate([
             mainStack.topAnchor.constraint(equalTo: topAnchor),
-            mainStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
-            mainStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
+            mainStack.leadingAnchor.constraint(equalTo: leadingAnchor),
+            mainStack.trailingAnchor.constraint(equalTo: trailingAnchor),
             mainStack.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }

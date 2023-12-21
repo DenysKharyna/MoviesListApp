@@ -16,7 +16,7 @@ struct Movie {
     let genre: [Genre]
     let releasedDate: Date?
     let trailerLinkURL: URL
-    let isInWatchList: Bool = false
+    var isInWatchList: Bool
     
     init(coverImage: UIImage, title: String, description: String, rating: Float, duration: DateComponents, genre: [Genre], releasedDate: String, trailerLinkURL: URL) {
         self.coverImage = coverImage
@@ -31,6 +31,7 @@ struct Movie {
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         self.releasedDate = dateFormatter.date(from: releasedDate)
         self.trailerLinkURL = trailerLinkURL
+        self.isInWatchList = UserDefaults.standard.bool(forKey: title)
     }
     
     func getDuration() -> String {
@@ -40,6 +41,16 @@ struct Movie {
     
     func getGenres() -> String {
         genre.map({ $0.rawValue }).joined(separator: ", ")
+    }
+    
+    mutating func addToWatchlist() {
+        isInWatchList = true
+        UserDefaults.standard.setValue(true, forKey: title)
+    }
+    
+    mutating func removeFromWatchlist() {
+        isInWatchList = false
+        UserDefaults.standard.setValue(false, forKey: title)
     }
 }
 

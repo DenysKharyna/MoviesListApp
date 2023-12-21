@@ -17,13 +17,17 @@ final class MainViewController: UITableViewController {
         configureUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title = "Movies"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     // MARK: Helper
     private func configureUI() {
         tableView.register(MainVCTableViewCell.self, forCellReuseIdentifier: cellID)
         tableView.showsVerticalScrollIndicator = false
         
-        self.title = "Movies"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.setRightBarButton(UIBarButtonItem(title: "Sort", style: .plain, target: self, action: #selector(showSortMenu)), animated: true)
         self.navigationItem.rightBarButtonItem?.tintColor = .label
     }
@@ -61,8 +65,11 @@ extension MainViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        self.title = ""
+        self.navigationItem.backButtonTitle = "Movies"
         let vc = MovieDetailsViewController()
         vc.movie = MoviesManager.shared.moviesList[indexPath.row]
+        vc.delegate = self
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

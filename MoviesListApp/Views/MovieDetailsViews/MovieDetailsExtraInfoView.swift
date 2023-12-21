@@ -64,12 +64,12 @@ final class MovieDetailsExtraInfoView: UIView {
         addSubview(mainStack)
         
         NSLayoutConstraint.activate([
-            detailsTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
+            detailsTitle.leadingAnchor.constraint(equalTo: leadingAnchor),
             detailsTitle.topAnchor.constraint(equalTo: topAnchor),
             
             mainStack.topAnchor.constraint(equalTo: detailsTitle.bottomAnchor, constant: 10),
-            mainStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
-            mainStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
+            mainStack.leadingAnchor.constraint(equalTo: leadingAnchor),
+            mainStack.trailingAnchor.constraint(equalTo: trailingAnchor),
             mainStack.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }

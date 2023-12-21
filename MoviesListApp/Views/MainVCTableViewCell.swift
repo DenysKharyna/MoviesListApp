@@ -24,7 +24,7 @@ final class MainVCTableViewCell: UITableViewCell {
             }
             mainInfoLabel.text = "\(movie.getDuration()) - \(movie.getGenres())"
             mainInfoLabel.setLineSpacing(2)
-            onWatchListLabel.isHidden = movie.isInWatchList
+            onWatchListLabel.isHidden = !movie.isInWatchList
         }
     }
     // MARK: Life cycle

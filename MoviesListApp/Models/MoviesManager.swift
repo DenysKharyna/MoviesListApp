@@ -30,6 +30,18 @@ final class MoviesManager {
         
         moviesList.append(contentsOf: withoutDate)
     }
+    
+    func addToWatchList(movie: Movie) {
+        if let index = moviesList.firstIndex(where: { $0.title == movie.title }) {
+            moviesList[index].addToWatchlist()
+        }
+    }
+    
+    func removeFromWatchList(movie: Movie) {
+        if let index = moviesList.firstIndex(where: { $0.title == movie.title }) {
+            moviesList[index].removeFromWatchlist()
+        }
+    }
 }
 
 // MARK: - Configuring Movies
