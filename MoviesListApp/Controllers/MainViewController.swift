@@ -68,8 +68,8 @@ extension MainViewController {
         self.title = ""
         self.navigationItem.backButtonTitle = "Movies"
         let vc = MovieDetailsViewController()
-        vc.movie = MoviesManager.shared.moviesList[indexPath.row]
-        vc.delegate = self
+        vc.movieDetailsView.movie = MoviesManager.shared.moviesList[indexPath.row]
+        vc.movieDetailsView.mainInfoView.delegate = self
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
