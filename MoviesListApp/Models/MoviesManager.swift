@@ -31,6 +31,7 @@ final class MoviesManager {
         moviesList.append(contentsOf: withoutDate)
     }
     
+    // MARK: Watchlist Methods
     func addToWatchList(movie: Movie) {
         if let index = moviesList.firstIndex(where: { $0.title == movie.title }) {
             moviesList[index].addToWatchlist()
@@ -91,7 +92,7 @@ extension MoviesManager {
                   duration: DateComponents(hour: 2, minute: 21),
                   genre: [.sciFi, .action, .adventure],
                   releasedDate: "1 May 2015",
-                  trailerLinkURL: URL(string: "https://www.youtube.com/watch?v=tg52up16eq0")!),
+                  trailerLinkURL: URL(string: "https://www.youtube.com/watch?v=tmeOjFno6Do")!),
         ]
     }
 }

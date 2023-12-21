@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MovieDetailsDescription: UIView {
+final class MovieDetailsDescriptionView: UIView {
     // MARK: Properties
     private let descriptionTitle = UILabel()
     let descriptionText = UILabel()
@@ -18,6 +18,7 @@ final class MovieDetailsDescription: UIView {
         configureUI()
         constrain()
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -27,6 +28,7 @@ final class MovieDetailsDescription: UIView {
         descriptionTitle.titleTextStyle(text: "Short description", fontSize: 20)
         descriptionText.simpleTextStyle(fontSize: 14)
     }
+    
     private func constrain() {
         let mainStack = UIStackView(arrangedSubviews: [descriptionTitle, descriptionText])
         mainStack.axis = .vertical

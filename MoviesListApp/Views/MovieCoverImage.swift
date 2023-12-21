@@ -8,14 +8,14 @@
 import UIKit
 
 final class MovieCoverImage: UIView {
-    
+    // MARK: Properties
     var imageView = UIImageView()
-    
+    // MARK: Life cycle
     override func layoutSubviews() {
         super.layoutSubviews()
         configureView()
     }
-    
+    // MARK: Helper
     private func configureView() {
         clipsToBounds = false
         layer.shadowColor = UIColor.black.cgColor

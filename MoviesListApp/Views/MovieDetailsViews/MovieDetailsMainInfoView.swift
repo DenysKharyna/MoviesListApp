@@ -25,6 +25,7 @@ final class MovieDetailsMainInfoView: UIView {
         configureUI()
         constrain()
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -52,6 +53,7 @@ final class MovieDetailsMainInfoView: UIView {
         watchTrailerButton.widthAnchor.constraint(equalTo: watchTrailerButton.titleLabel!.widthAnchor, constant: 54).isActive = true
         watchTrailerButton.addTarget(self, action: #selector(watchTrailerTapped), for: .touchUpInside)
     }
+    
     private func constrain() {
         let ratingStack = UIStackView(arrangedSubviews: [ratingLabel, maxRating])
         ratingStack.axis = .horizontal
@@ -104,6 +106,9 @@ final class MovieDetailsMainInfoView: UIView {
     }
     
     @objc private func watchTrailerTapped() {
-        print("watchTrailerTapped")
+        guard let movie = movie else { return }
+        if UIApplication.shared.canOpenURL(movie.trailerLinkURL) {
+            UIApplication.shared.open(movie.trailerLinkURL)
+        }
     }
 }

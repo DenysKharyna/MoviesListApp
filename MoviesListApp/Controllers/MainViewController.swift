@@ -27,6 +27,8 @@ final class MainViewController: UITableViewController {
     private func configureUI() {
         tableView.register(MainVCTableViewCell.self, forCellReuseIdentifier: cellID)
         tableView.showsVerticalScrollIndicator = false
+        tableView.tableHeaderView = UIView()
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 18, bottom: 0, right: 8)
         
         self.navigationItem.setRightBarButton(UIBarButtonItem(title: "Sort", style: .plain, target: self, action: #selector(showSortMenu)), animated: true)
         self.navigationItem.rightBarButtonItem?.tintColor = .label
@@ -60,7 +62,7 @@ extension MainViewController {
 // MARK: - UITableViewDelegate
 extension MainViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        210
+        215
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

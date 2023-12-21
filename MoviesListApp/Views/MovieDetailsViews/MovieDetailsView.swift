@@ -11,7 +11,7 @@ final class MovieDetailsView: UIView {
     // MARK: Properties
     let mainInfoView = MovieDetailsMainInfoView()
     private let firstSeparator = SeparatorView()
-    private let descriptionView = MovieDetailsDescription()
+    private let descriptionView = MovieDetailsDescriptionView()
     private let secondSeparator = SeparatorView()
     private let extraInfoView = MovieDetailsExtraInfoView()
     
@@ -43,6 +43,7 @@ final class MovieDetailsView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: Helpers
     private func constrain() {
         mainInfoView.translatesAutoresizingMaskIntoConstraints = false
         descriptionView.translatesAutoresizingMaskIntoConstraints = false

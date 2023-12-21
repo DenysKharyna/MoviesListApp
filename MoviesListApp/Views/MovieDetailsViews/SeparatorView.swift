@@ -8,7 +8,7 @@
 import UIKit
 
 final class SeparatorView: UIView {
-
+    // MARK: Life cycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureView()
@@ -18,6 +18,7 @@ final class SeparatorView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: Helpers
     private func configureView() {
         backgroundColor = .systemGray5
         widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 30).isActive = true
